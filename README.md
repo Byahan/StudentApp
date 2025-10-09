@@ -19,7 +19,8 @@ Fitur:
    ```bash
    javac src/*.java
 4. Lalu jalankan program: 
-java -cp src StudentManagementApp
+    ```bash
+    java -cp src StudentManagementApp
 5. Atau bisa juga dengan Run class StudentManagementApp.java pada VSCode
 
 ## Contoh Hasil Output di Console
