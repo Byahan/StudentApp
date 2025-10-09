@@ -1,2 +1,9 @@
+*.class
+
 .vscode/
-.bin
+
+bin/
+lib/
+
+.DS_Store
+Thumbs.db
