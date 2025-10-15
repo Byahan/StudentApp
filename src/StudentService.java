@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class StudentService {
@@ -23,20 +22,15 @@ public class StudentService {
     }
 
     public void deleteStudent(String nim) {
-        Iterator<Student> iterator = students.iterator();
-        boolean found = false;
+        Student found = students.stream()
+                .filter(s -> s.getNim().equalsIgnoreCase(nim))
+                .findFirst()
+                .orElse(null);
 
-        while (iterator.hasNext()) {
-            Student s = iterator.next();
-            if (s.getNim().equalsIgnoreCase(nim)) {
-                iterator.remove();
-                found = true;
-                System.out.println("Student with NIM " + nim + " deleted successfully.");
-                break;
-            }
-        }
-
-        if (!found) {
+        if (found != null) {
+            students.remove(found);
+            System.out.println("Student with NIM " + nim + " deleted successfully.");
+        } else {
             System.out.println("No student found with NIM: " + nim);
         }
     }
